@@ -20,6 +20,8 @@ instance Controller PostsController where
 
     action ShowPostAction { postId } = do
         post <- fetch postId
+            >>= pure . modify #comments (orderByAsc #createdAt)
+            >>= fetchRelated #comments
         render ShowView { .. }
 
     action EditPostAction { postId } = do
