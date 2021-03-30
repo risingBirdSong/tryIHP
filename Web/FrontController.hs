@@ -11,9 +11,9 @@ import Web.Controller.Static
 
 instance FrontController WebApplication where
     controllers = 
-        [ startPage WelcomeAction
+        [ 
         -- Generator Marker
-        , parseRoute @CommentsController
+          parseRoute @CommentsController
         , parseRoute @PostsController
         ]
 
